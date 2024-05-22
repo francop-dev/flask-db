@@ -1,0 +1,38 @@
+{% extends './layout.html' %}
+
+{% block title %}{{ data.titulo }}{% endblock %}
+
+{% block body %}
+<h1>{{ data.bienvenida }}</h1>
+
+{% if data.personas|length > 0 %}
+    <h2>{{ data.titulo }}</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>IDt</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>DNI</th>
+                <th>Peso</th>
+                <th>roll</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for persona in data.personas %}
+            <tr>
+                <td>{{ persona.id }}</td>
+                <td>{{ persona.name }}</td>
+                <td>{{ persona.age }}</td>
+                <td>{{ persona.dni }}</td>
+                <td>{{ persona.peso }}</td>            
+                <td>{{ persona.role }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <h2>No hay personas registradas</h2>
+{% endif %}
+
+{% endblock %}
